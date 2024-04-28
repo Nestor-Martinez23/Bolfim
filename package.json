@@ -1,0 +1,20 @@
+{
+  "name": "bolfim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nestor-Martinez23/Bolfim.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nestor-Martinez23/Bolfim/issues"
+  },
+  "homepage": "https://github.com/Nestor-Martinez23/Bolfim#readme"
+}
