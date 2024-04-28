@@ -1,14 +1,88 @@
-.contenedor {
-background-color: saddlebrown;
-width: 100%;
-height: 100%;
+html {
+ display: grid;
+ justify-content: center;
 }
-main {
-  background-color: aquamarine;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+body {
+
+  width: 128.0rem;
+  height: 72.0rem;
 
 }
-footer{
-  background-color: blue;
+header {
+  background: linear-gradient(to right, rgba(8,58,105,1) 17%, rgba(63,140,214,1) 87%, rgba(69,149,226,1) 95%, rgba(73,155,234,1) 100%);
+  padding-left: 3rem;
+  color: white;
+}
+
+.contenedor {
+  border: .2rem solid black;
+  border-radius: 1rem;
+
+}
+main {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.left-section {
+  display: grid;
+  grid-template-rows: 1fr 12fr;
+}
+img {
+  width: 100%;
+  height: 100%;
+
+}
+.right-section {
+  display: grid;
+  grid-template-rows:1.5fr 4fr .8fr;
+}
+.right-section p {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: .1rem;
+}
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  padding-top: 3rem;
+  margin: 2.5rem 5rem;
+  border-bottom: .3rem solid black;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: .5rem 5rem;
+}
+form div {
+  display: flex;
+  flex-direction: column;
+}
+div input {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  width: 98%;
+
+}
+button{
+  height: 20%;
+  position: relative;
+  font-size: 3rem;
+  font-style: bold;
+  background: rgb(6, 93, 174);
+  color: white;
+}
+footer p{
+  margin: 0;
+  padding: 1rem 0;
+  padding-right: 3rem;
+  background: linear-gradient(to left, rgba(8,58,105,1) 17%, rgb(10, 75, 136) 87%, rgb(7, 70, 129) 95%, rgb(5, 64, 120) 100%);
+  text-align: end;
+  font-size: 2rem;
+  color: white;
 }
