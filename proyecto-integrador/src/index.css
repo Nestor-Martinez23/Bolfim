@@ -1,17 +1,11 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  background-color: darkgray;
+
   }
-  *, *:before, *:after {
+*, *:before, *:after {
   box-sizing: inherit;
   
   }
-  body {
-    background-color: aliceblue;
-    width: 128.0rem;
-    height: 72.0rem;
-    padding: 0rem;
-    margin: 0rem;
-    display: flex;
-    justify-content: center;
-  }
+ 
