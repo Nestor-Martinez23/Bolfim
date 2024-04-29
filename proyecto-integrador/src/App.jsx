@@ -1,9 +1,13 @@
 
 import  Login from './components/Login.jsx'
-//import MainMenu from './components/MainMenu.jsx'
+import MainMenu from './components/MainMenu.jsx'
 
 function App() {
-  return Login()
+  let boton = "on";
+  if (boton === "on") {
+    return MainMenu()
+  }
+    return Login()
   
 }
 
