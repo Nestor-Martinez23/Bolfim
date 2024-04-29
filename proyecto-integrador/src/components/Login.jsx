@@ -3,18 +3,18 @@ import bolfimLogo from '../assets/bolfim.png';
 
 function Login() {
     return (
-        <div className="contenedor">
+        <div className="contenedor-login">
             
             <main>
-                <div className="left-section">
+                <div className="left-section-login">
                     <header>
                         <h2>BOLFIM</h2>
                     </header>
                     <img src={bolfimLogo} alt="BOLFIM Logo" />
                     {/* Aquí puedes agregar el código para la imagen de la empresa */}
                 </div>
-                <div className="right-section">
-                    <h1>Login</h1>
+                <div className="right-section-login">
+                    <h1 className='h1-login'>Login</h1>
                     <form>
                         <div>
                             <label htmlFor="email">Email:</label>

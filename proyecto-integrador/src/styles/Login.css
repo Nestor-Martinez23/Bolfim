@@ -1,15 +1,18 @@
 
-.contenedor {
+.contenedor-login {
   border: .2rem solid black;
-  border-radius: 1rem;
-
+  border-radius: 1rem; 
+  height: 70rem;
+  display: grid;
+  grid-template-rows: 15fr 1fr;
+ 
 }
 main {
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-.left-section {
+.left-section-login {
   display: grid;
   grid-template-rows: 1fr 12fr;
 }
@@ -18,17 +21,17 @@ img {
   height: 100%;
 
 }
-.right-section {
+.right-section-login {
   display: grid;
   grid-template-rows:1.5fr 4fr .8fr;
 }
-.right-section p {
+.right-section-login p {
   display: flex;
   justify-content: center;
   font-size: 2rem;
   margin-top: .1rem;
 }
-h1 {
+.h1-login {
   text-align: center;
   font-size: 3rem;
   padding-top: 3rem;
