@@ -2,10 +2,42 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   background-color: darkgray;
+  display: grid;
+  justify-content: center;
 
-  }
-*, *:before, *:after {
+}
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
-  
-  }
- 
+
+}
+
+header {
+  background: linear-gradient(to right, rgba(8, 58, 105, 1) 17%, rgba(63, 140, 214, 1) 87%, rgba(69, 149, 226, 1) 95%, rgba(73, 155, 234, 1) 100%);
+  color: white;
+
+
+}
+
+header h2 {
+  margin-left: 3rem;
+}
+
+body {
+
+  width: 128.0rem;
+  height: 72.0rem;
+
+}
+
+footer p {
+  margin: 0;
+  padding: 1rem 0;
+  padding-right: 3rem;
+  background: linear-gradient(to left, rgba(8, 58, 105, 1) 17%, rgb(10, 75, 136) 87%, rgb(7, 70, 129) 95%, rgb(5, 64, 120) 100%);
+  text-align: end;
+  font-size: 2rem;
+  color: white;
+}
