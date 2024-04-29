@@ -1,5 +1,5 @@
 import '../styles/MainMenu.css';
-
+import Ordenes from './Ordenes.jsx';
 function MainMenu() {
     return (
         <div className="contenedor">
@@ -17,22 +17,25 @@ function MainMenu() {
             </header>
 
             <main>
-                <div className="left-section">
-                    <aside>
-                        <div>
 
-                        </div>
-                        <nav>
+                <aside className="left-section">
+                    <div className='user_info'>
+                        <img src="#" alt="Imagen de usuario" />
 
-                        </nav>
-                    </aside>
-                </div>
+                    </div>
+                    <nav>
+
+                    </nav>
+                </aside>
+
                 <div className="right-section">
-                    <h1>Login</h1>
-                    <div>
+                    <h1 className='h1-Menu'>Ordenes</h1>
+                    <div className='contendor' >
+                        <Ordenes />
                         
                     </div>
-                    <p>Para soporte técnico, por favor contacta a: soporte@bolfim.com</p>
+
+
                 </div>
             </main>
             <footer className="footer">
