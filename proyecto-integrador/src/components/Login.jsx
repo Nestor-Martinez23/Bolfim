@@ -11,7 +11,7 @@ function Login() {
                         <h2>BOLFIM</h2>
                     </header>
                     <img src={bolfimLogo} alt="BOLFIM Logo" />
-                    {/* Aquí puedes agregar el código para la imagen de la empresa */}
+                    
                 </div>
                 <div className="right-section-login">
                     <h1 className='h1-login'>Login</h1>
