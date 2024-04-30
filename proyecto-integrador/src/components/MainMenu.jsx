@@ -1,5 +1,8 @@
 import '../styles/MainMenu.css';
-import Ordenes from './Ordenes.jsx';
+import ContenedorSer from './ContenedorSer.jsx';
+import logout from '../assets/logout.svg';
+import help from '../assets/help.svg';
+import userImage from '../assets/userImage.png';
 function MainMenu() {
     return (
         <div className="contenedor">
@@ -8,9 +11,10 @@ function MainMenu() {
                     <h2>BOLFIM</h2>
                     <div></div>
                 </div>
-                <div>
-                    <a href="#">Enlace</a>
-                    <a href="#">Enlace 2</a>
+                <div className='iconos-superiores'>
+                    <a href="#"><img src={logout} alt="" /></a>
+                    <a href="#"><img src={help} alt="" /></a>
+                    
                 </div>
 
 
@@ -20,7 +24,8 @@ function MainMenu() {
 
                 <aside className="left-section">
                     <div className='user_info'>
-                        <img src="#" alt="Imagen de usuario" />
+                        <img className='user-image' src={userImage} alt="Imagen de usuario" />
+                        <div className='User-tag'>Nombre de usuario</div>
 
                     </div>
                     <nav>
@@ -31,7 +36,7 @@ function MainMenu() {
                 <div className="right-section">
                     <h1 className='h1-Menu'>Ordenes</h1>
                     <div className='contendor' >
-                        <Ordenes />
+                        <ContenedorSer />
                         
                     </div>
 
