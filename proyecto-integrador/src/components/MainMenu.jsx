@@ -3,6 +3,7 @@ import ContenedorSer from './ContenedorSer.jsx';
 import logout from '../assets/logout.svg';
 import help from '../assets/help.svg';
 import userImage from '../assets/userImage.png';
+import NavServicios from './NavServicios.jsx';
 function MainMenu() {
     return (
         <div className="contenedor">
@@ -23,23 +24,36 @@ function MainMenu() {
             <main>
 
                 <aside className="left-section">
-                    <div className='user_info'>
+                    <div className='user-contenedor'>
+                        <div className='user-info'>
                         <img className='user-image' src={userImage} alt="Imagen de usuario" />
-                        <div className='User-tag'>Nombre de usuario</div>
+                        <span className='user-tag'>Nombre de usuario</span>
+                        </div>
+
 
                     </div>
-                    <nav>
+                    <div className='left-nav'>
+                        <div></div>
+                        <div>
+                            Puesto
+                        </div>
+                        <nav>
+                            <a href="">Panel</a>
+                            <a href="">Ventas</a>
+                            <a href="">Almacen</a>
+                            <a href="">Config</a>
+                        </nav>
+                    </div>
 
-                    </nav>
                 </aside>
 
                 <div className="right-section">
-                    <div className='h1-Menu'>
-                      <h1 className='h1-Menu'>Ordenes</h1>  
-                      <nav></nav>
+                    <div className='contenedor-nav-h1'>
+                      <h1 className='h1-menu'>Ordenes</h1>  
+                      <NavServicios />
                     </div>
                     
-                    <div className='contendor' >
+                    <div className='contenedor-servicio' >
                         <ContenedorSer />
                         
                     </div>
