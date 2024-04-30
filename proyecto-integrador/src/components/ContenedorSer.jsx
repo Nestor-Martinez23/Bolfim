@@ -1,5 +1,5 @@
 import '../styles/ContenedorSer.css';
-import Ordenes from '../services/Ordenes.jsx';
+import {Ordenes} from '../services/Ordenes.jsx';
 
 function ContenedorSer() {
     
