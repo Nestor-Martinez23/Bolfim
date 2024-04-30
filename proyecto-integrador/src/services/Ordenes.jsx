@@ -32,7 +32,7 @@ function Ordenes() {
 
     return (
         <>
-            <section className='contendor-products'>
+            <section className='contenedor-products'>
                 {orders.map((order) => (
                     <div className='product' key={order.id}>
                         <div>{order.id}</div>
@@ -50,5 +50,16 @@ function Ordenes() {
     ) 
 
 }
+function NavOrdenes(){
+  return (
+    <nav>
+      <a  href=""> <span></span>Volver</a>
+      <a href="">En espera</a>
+      <a href="">Archivados</a>
+      <a href="">Filtrar</a>
+      <a href="">Añadir</a>
+    </nav>
+  )
+}
 
-export default Ordenes;
+export {Ordenes, NavOrdenes};
