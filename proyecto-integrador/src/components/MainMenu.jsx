@@ -34,7 +34,11 @@ function MainMenu() {
                 </aside>
 
                 <div className="right-section">
-                    <h1 className='h1-Menu'>Ordenes</h1>
+                    <div className='h1-Menu'>
+                      <h1 className='h1-Menu'>Ordenes</h1>  
+                      <nav></nav>
+                    </div>
+                    
                     <div className='contendor' >
                         <ContenedorSer />
                         
