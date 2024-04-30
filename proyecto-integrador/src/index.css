@@ -27,7 +27,7 @@ header h2 {
 
 body {
 
-  width: 115.0rem;
+  width: 128.0rem;
   height: 72.0rem;
 
 }
@@ -40,4 +40,11 @@ footer p {
   text-align: end;
   font-size: 2rem;
   color: white;
+}
+.iconos-superiores{
+  display: flex;
+  padding-right: 1rem;
+}
+.iconos-superiores img{
+  padding-left: 2rem;
 }
