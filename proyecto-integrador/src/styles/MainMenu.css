@@ -18,28 +18,59 @@ main {
   background-color: rgb(255, 255, 255);
   border: .3rem solid rgba(0, 0, 0, 0.084);
 }
-.left-section div {
+.left-section .user-contenedor {
   background-image: url('../assets/bolfimBack.png');
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
-
+.user-info{
+  position: absolute;  
+  top: 70%;
+  right: 31%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .user-image {
-position: absolute;
 width: 10rem;
 height: 10rem;
-top: 70%;
-right: 31%;
 border: .3rem solid rgba(0, 0, 0, 0.084);
 border-radius: 5rem ;
 }
+.user-tag{
+  font: 2rem;
+  font-weight: bold;  
+}
+.left-nav{
+  display: grid;
+  grid-template-rows: 1fr 1fr 6fr;
 
+}
+.left-nav nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: .3rem solid rgba(0, 0, 0, 0.084);
+}
+.left-nav nav a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  border: .1rem solid rgba(0, 0, 0, 0.084);
+  color: #00abfb;
+  font-weight: bolder;
+}
 .right-section {
   display: grid;
   grid-template-rows: 1.5fr 4fr .8fr;
 }
-.right-section .contendor{
+.right-section .contenedor-servicio{
   display: grid;
   grid-template-columns: 12fr 1fr;
 }
@@ -50,14 +81,29 @@ border-radius: 5rem ;
   font-size: 2rem;
   margin-top: .1rem;
 }
-
-h1{
-  text-align: start;
-  font-size: 3rem;
-  padding-top: 3rem;
+.contenedor-nav-h1{
+  display: grid; 
+  grid-template-columns: 1fr 5fr;
   margin: 2.5rem 5rem;
   border-bottom: .3rem solid rgba(0, 0, 0, 0.386);
-
+  padding-top: 3rem;
+}
+.h1-menu{
+  text-align: start;
+  font-size: 3rem;
+}
+.contenedor-nav-h1 nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.contenedor-nav-h1 nav a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  border: .3rem solid rgba(0, 0, 0, 0.084);
 }
 
 form {
