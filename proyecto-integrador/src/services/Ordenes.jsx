@@ -5,7 +5,7 @@ function Ordenes() {
         {
           id: '1',
           info: 'Información de la orden 1',
-          progress: 25, // Progreso de la orden en porcentaje
+          progress: 25, 
         },
         {
           id: '2',
