@@ -57,7 +57,7 @@ div input {
   width: 98%;
 
 }
-button{
+.button-login{
   height: 20%;
   position: relative;
   font-size: 3rem;

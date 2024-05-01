@@ -54,17 +54,23 @@ border-radius: 5rem ;
   align-items: center;
   border: .3rem solid rgba(0, 0, 0, 0.084);
 }
-.left-nav nav a {
+.left-nav nav button {
   text-align: center;
   text-decoration: none;
   color: black;
   width: 100%;
   font-size: 2rem;
   padding: 1rem;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   border: .1rem solid rgba(0, 0, 0, 0.084);
   color: #00abfb;
   font-weight: bolder;
+
+}
+.left-nav nav button:hover {  
+  cursor: pointer;
+  background-color: #00abfb;
+  color: white;
 }
 .right-section {
   display: grid;
@@ -127,16 +133,6 @@ div input {
   width: 98%;
 
 }
-
-button {
-  height: 20%;
-  position: relative;
-  font-size: 3rem;
-  font-style: bold;
-  background: rgb(6, 93, 174);
-  color: white;
-}
-
 header {
   padding: .7rem;
   display: flex;
