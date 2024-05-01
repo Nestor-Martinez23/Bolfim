@@ -1,4 +1,5 @@
 import '../styles/MainMenu.css';
+import '../styles/PanelControl.css'
 import logout from '../assets/logout.svg';
 import help from '../assets/help.svg';
 import userImage from '../assets/userImage.png';
@@ -7,7 +8,6 @@ import { useState } from 'react';
 
 function MainMenu() {
     const [page, setPage] = useState('Ventas');
-    console.log("renderizado", page)
     return (
         <div className="contenedor">
             <header>
