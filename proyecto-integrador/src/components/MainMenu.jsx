@@ -1,10 +1,13 @@
 import '../styles/MainMenu.css';
-import ContenedorSer from './ContenedorSer.jsx';
 import logout from '../assets/logout.svg';
 import help from '../assets/help.svg';
 import userImage from '../assets/userImage.png';
-import NavServicios from './NavServicios.jsx';
+import {ChangePage, ChangeNav} from '../services/ChangePage.js';
+import { useState } from 'react';
+
 function MainMenu() {
+    const [page, setPage] = useState('Ventas');
+    console.log("renderizado", page)
     return (
         <div className="contenedor">
             <header>
@@ -15,7 +18,7 @@ function MainMenu() {
                 <div className='iconos-superiores'>
                     <a href="#"><img src={logout} alt="" /></a>
                     <a href="#"><img src={help} alt="" /></a>
-                    
+
                 </div>
 
 
@@ -26,8 +29,8 @@ function MainMenu() {
                 <aside className="left-section">
                     <div className='user-contenedor'>
                         <div className='user-info'>
-                        <img className='user-image' src={userImage} alt="Imagen de usuario" />
-                        <span className='user-tag'>Nombre de usuario</span>
+                            <img className='user-image' src={userImage} alt="Imagen de usuario" />
+                            <span className='user-tag'>Nombre de usuario</span>
                         </div>
 
 
@@ -38,10 +41,10 @@ function MainMenu() {
                             Puesto
                         </div>
                         <nav>
-                            <a href="">Panel</a>
-                            <a href="">Ventas</a>
-                            <a href="">Almacen</a>
-                            <a href="">Config</a>
+                            <button className='button-menu' onClick={() => setPage('Panel')}>Panel</button>
+                            <button className='button-menu' onClick={() => setPage('Ventas')}>Ventas</button>
+                            <button className='button-menu' onClick={() => setPage('Almacen')}>Almacen</button>
+                            <button className='button-menu' onClick={() => setPage('Config')}>Config</button>
                         </nav>
                     </div>
 
@@ -49,13 +52,13 @@ function MainMenu() {
 
                 <div className="right-section">
                     <div className='contenedor-nav-h1'>
-                      <h1 className='h1-menu'>Ordenes</h1>  
-                      <NavServicios />
+                        <h1 className='h1-menu'>{page}</h1>
+                        {ChangeNav(page)}
                     </div>
-                    
+
                     <div className='contenedor-servicio' >
-                        <ContenedorSer />
-                        
+                         {ChangePage(page)}
+
                     </div>
 
 
