@@ -25,7 +25,7 @@ function Login() {
                             <label htmlFor="password">Contraseña:</label>
                             <input type="password" id="password" name="password" required />
                         </div>
-                        <button type="submit">Iniciar sesión</button>
+                        <button className='button-login' type="submit">Iniciar sesión</button>
                     </form>
                     <p>Para soporte técnico, por favor contacta a: soporte@bolfim.com</p>
                 </div>
