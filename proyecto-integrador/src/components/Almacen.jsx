@@ -1,4 +1,4 @@
-
+//
 function Almacen() {
     const materiaPrima = [
         {
