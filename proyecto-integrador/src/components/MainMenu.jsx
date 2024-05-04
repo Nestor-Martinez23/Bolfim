@@ -1,13 +1,20 @@
 import '../styles/MainMenu.css';
 import '../styles/PanelControl.css'
-import logout from '../assets/logout.svg';
+import logoutIcon from '../assets/logout.svg';
 import help from '../assets/help.svg';
+import IconConfig from '../assets/IconConfig.svg';
 import userImage from '../assets/userImage.png';
 import {ChangePage, ChangeNav} from '../services/ChangePage.js';
 import { useState } from 'react';
 
-function MainMenu() {
+function MainMenu({logout, userName, userRole}) {
     const [page, setPage] = useState('Ventas');
+    const handleLogout = () => {
+        // Llama a la función de cierre de sesión proporcionada como prop
+        logout();
+    };
+
+  
     return (
         <div className="contenedor">
             <header>
@@ -16,7 +23,7 @@ function MainMenu() {
                     <div></div>
                 </div>
                 <div className='iconos-superiores'>
-                    <a href="#"><img src={logout} alt="" /></a>
+                    <a href="#"><img src={logoutIcon} alt="" onClick={handleLogout} /></a>
                     <a href="#"><img src={help} alt="" /></a>
 
                 </div>
@@ -30,21 +37,21 @@ function MainMenu() {
                     <div className='user-contenedor'>
                         <div className='user-info'>
                             <img className='user-image' src={userImage} alt="Imagen de usuario" />
-                            <span className='user-tag'>Nombre de usuario</span>
+                            <span className='user-tag'>{userName}</span>
                         </div>
 
 
                     </div>
                     <div className='left-nav'>
                         <div></div>
-                        <div>
-                            Puesto
+                        <div className='user-rol'>
+                            {userRole}
                         </div>
                         <nav>
                             <button className='button-menu' onClick={() => setPage('Panel')}>Panel</button>
                             <button className='button-menu' onClick={() => setPage('Ventas')}>Ventas</button>
                             <button className='button-menu' onClick={() => setPage('Almacen')}>Almacen</button>
-                            <button className='button-menu' onClick={() => setPage('Config')}>Config</button>
+                            <button className='button-Config' onClick={() => setPage('Config')}>   <a href=""><img src={IconConfig} alt="" /></a> </button>
                         </nav>
                     </div>
 
