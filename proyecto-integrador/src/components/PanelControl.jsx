@@ -16,7 +16,7 @@ export function PanelControl() {
                     <a href=""><img src={paneluser} alt="" /></a>
                 </div>
             </section>
-            <div className='scroll-bar'>
+            <div className='scroll-bar-panel'>
 
             </div>
         </>
