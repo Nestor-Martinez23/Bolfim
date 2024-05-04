@@ -1,28 +1,8 @@
 import Icon from '../assets/dots-vertical.svg'
+import orders from '../mocks/ordenes.js'
 
 function Ordenes() {
-    const orders = [
-        {
-          id: '1',
-          info: 'Información de la orden 1',
-          progress: 25, 
-        },
-        {
-          id: '2',
-          info: 'Información de la orden 2',
-          progress: 50,
-        },
-        {
-          id: '3',
-          info: 'Información de la orden 3',
-          progress: 75,
-        },
-        {
-          id: '4',
-          info: 'Información de la orden 4',
-          progress: 100,
-        },
-      ];
+
     function Porcentaje (porcent){
         if(porcent >= 90) return "#70d611"
         else if(porcent >= 70) return "#0497c4";
