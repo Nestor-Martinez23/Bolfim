@@ -39,8 +39,12 @@ border: .3rem solid rgba(0, 0, 0, 0.084);
 border-radius: 5rem ;
 }
 .user-tag{
-  font: 2rem;
-  font-weight: bold;  
+  font: 4rem;
+  font-weight: bold;
+}
+.user-rol{
+ text-align: center;
+  font-size: 1.5rem;
 }
 .left-nav{
   display: grid;
@@ -54,7 +58,7 @@ border-radius: 5rem ;
   align-items: center;
   border: .3rem solid rgba(0, 0, 0, 0.084);
 }
-.left-nav nav button {
+.left-nav .button-menu {
   text-align: center;
   text-decoration: none;
   color: black;
@@ -67,7 +71,14 @@ border-radius: 5rem ;
   font-weight: bolder;
 
 }
-.left-nav nav button:hover {  
+.left-nav .button-Config {
+  background-color: white;
+  border: none;
+  height: 5rem;
+
+}
+
+.left-nav .button-menu:hover {  
   cursor: pointer;
   background-color: #00abfb;
   color: white;
