@@ -1,10 +1,8 @@
 import '../styles/Login.css';
 import bolfimLogo from '../assets/bolfim.png';
-import useUserAuth from '../hooks/useUserAuth.jsx';
+import checkUser from '../services/checkUser';
 
-function Login({ onLoginSuccess }) {
-    const { emailRef, passwordRef, handleSubmit } = useUserAuth({ onLoginSuccess });
-
+function Login() {
     return (
         <div className="contenedor-login">
             <main>
@@ -16,14 +14,14 @@ function Login({ onLoginSuccess }) {
                 </div>
                 <div className="right-section-login">
                     <h1 className='h1-login'>Login</h1>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={checkUser}>
                         <div>
                             <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" name="email" ref={emailRef} required />
+                            <input type="email" id="email" name="email" required />
                         </div>
                         <div>
                             <label htmlFor="password">Contraseña:</label>
-                            <input type="password" id="password" name="password" ref={passwordRef} required />
+                            <input type="password" id="password" name="password" required />
                         </div>
                         <button className='button-login' type="submit">Iniciar sesión</button>
                     </form>
@@ -36,5 +34,5 @@ function Login({ onLoginSuccess }) {
         </div>
     );
 }
- 
+
 export default Login;
