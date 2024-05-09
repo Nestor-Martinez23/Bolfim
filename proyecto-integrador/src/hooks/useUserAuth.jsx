@@ -8,6 +8,7 @@ export default function useUserAuth({ onLoginSuccess }) {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
+        console.log(email, password);
 
         try {
             const response = await fetch('http://localhost:3000/login', {
