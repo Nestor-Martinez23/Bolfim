@@ -6,9 +6,13 @@ import IconConfig from '../assets/IconConfig.svg';
 import userImage from '../assets/userImage.png';
 import {ChangePage, ChangeNav} from '../services/ChangePage.js';
 import { useState } from 'react';
+import useAuth from '../hooks/UseAuth.jsx';
 
-function MainMenu({logout, userName, userRole}) {
+function MainMenu() {
     const [page, setPage] = useState('Ventas');
+    const { logout } = useAuth();
+    const userName = localStorage.getItem('userName');
+    const userRole = localStorage.getItem('userRole');
     const handleLogout = () => {
         // Llama a la función de cierre de sesión proporcionada como prop
         logout();
