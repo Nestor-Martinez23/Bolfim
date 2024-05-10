@@ -46,6 +46,22 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/Products', async (res) => {
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('orders');
+        const products = await collection.find({}).toArray();
+
+        // Si se encuentran productos, envíalos en la respuesta
+        res.status(200).json({ 
+            
+        });
+    } catch (error) {
+        console.error('Error al obtener los productos:', error);
+        res.status(500).json({ message: 'Error al obtener los productos' });
+    }
+});
+
 async function startServer() {
     try {
         await connectToDatabase();
@@ -58,3 +74,4 @@ async function startServer() {
 }
 
 startServer()
+
