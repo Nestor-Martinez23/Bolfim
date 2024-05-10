@@ -1,6 +1,7 @@
 import Icon from '../assets/dots-vertical.svg'
 import orders from '../mocks/ordenes.js'
-import { getProducts } from '../services/crudProducts.js';      
+import { getProducts } from '../services/crudProducts.js';
+      
 function Ordenes() {
 
     function Porcentaje (porcent){
