@@ -1,6 +1,6 @@
 import Icon from '../assets/dots-vertical.svg'
 import orders from '../mocks/ordenes.js'
-
+import { getProducts } from '../services/crudProducts.js';      
 function Ordenes() {
 
     function Porcentaje (porcent){
@@ -19,7 +19,7 @@ function Ordenes() {
                         <div>{order.info}</div>
                         <div>{order.progress}</div>
                         <div className='progress-bar' style={{ width: order.progress - 7 + "%", backgroundColor: Porcentaje(order.progress) }}>{order.progress + "%" }</div>
-                        <div> <a  href=""><img src={Icon} alt="" /></a></div>
+                        <div> <a  href="#"><img src={Icon} alt=""  /></a></div>
                     </div>
                 ))}
             </section>
@@ -36,7 +36,7 @@ function NavOrdenes(){
       <a  href=""> <span></span>Volver</a>
       <a href="">En espera</a>
       <a href="">Archivados</a>
-      <a href="">Filtrar</a>
+      <a href="#" onClick={getProducts}>Filtrar</a>
       <a href="">Añadir</a>
     </nav>
   )
