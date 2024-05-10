@@ -1,6 +1,6 @@
 import '../styles/Login.css';
 import bolfimLogo from '../assets/bolfim.png';
-import checkUser from '../services/checkUser';
+import checkUser from '../services/CheckUser.js';
 
 function Login() {
     return (
