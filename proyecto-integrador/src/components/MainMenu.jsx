@@ -11,8 +11,10 @@ import useAuth from '../hooks/UseAuth.jsx';
 function MainMenu() {
     const [page, setPage] = useState('Ventas');
     const { logout } = useAuth();
-    const userName = localStorage.getItem('userName');
-    const userRole = localStorage.getItem('userRole');
+    const userData = localStorage.getItem('userData');
+    const { userName, userRole } = JSON.parse(userData);
+   
+
     const handleLogout = () => {
         // Llama a la función de cierre de sesión proporcionada como prop
         logout();
