@@ -1,4 +1,5 @@
-const URL = 'http://localhost:3000/orders';
+
+const URL = 'http://localhost:3000/Products';
 
 async function getProducts() {
     try {
@@ -10,13 +11,13 @@ async function getProducts() {
         
         });
         const data = await response.json();
-        console.log(data);
-        return data;
+        const orders = data.products;
+        return orders;
     } catch (error) {
         console.error('Error al obtener los productos:', error);
         throw error;
     }
-
+    
 }
 
 async function createProduct(newProduct) {
