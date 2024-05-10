@@ -5,8 +5,7 @@ import useAuth from './hooks/UseAuth.jsx';
 
 function App() {
     // Estado para controlar si se ha iniciado sesión o no
-    const { isLoggedIn, userData } = useAuth();
-    console.log("1:",isLoggedIn,"2:",userData,"3:","4:")
+    const { isLoggedIn} = useAuth();
     // Renderizar el componente correspondiente según el estado de inicio de sesión
     return isLoggedIn ? <MainMenu   /> : <Login  />;
 }
