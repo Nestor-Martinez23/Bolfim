@@ -33,9 +33,6 @@ export const checkUser = async (e) => {
         // Puedes mostrar un mensaje de error al usuario aquí si lo deseas
     }
 
-    // Imprimir los datos almacenados en localStorage
-    const storedUserData = JSON.parse(localStorage.getItem('userData'));
-    console.log('Datos almacenados en localStorage:', storedUserData);
 };
 
 export default checkUser;
