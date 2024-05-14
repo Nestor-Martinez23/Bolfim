@@ -13,6 +13,7 @@ function MainMenu() {
     const { logout } = useAuth();
     const userData = localStorage.getItem('userData');
     const { userName, userRole } = JSON.parse(userData);
+    
    
 
     const handleLogout = () => {
