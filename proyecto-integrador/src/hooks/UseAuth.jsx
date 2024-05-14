@@ -23,8 +23,7 @@ export default function useAuth() {
 
     function logout() {
         setIsLoggedIn(false);
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('userData');
+        localStorage.clear(); // Esto limpiará todo el localStorage
         setUserData(null);
         window.location.reload();
     }
