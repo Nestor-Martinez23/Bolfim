@@ -1,8 +1,26 @@
 import Icon from '../assets/dots-vertical.svg'
-import orders from '../mocks/ordenes.js'
-import { getProducts } from '../services/crudProducts.js';
-      
+import '../styles/Modales.css';
+import {getProducts}  from '../services/crudProducts.js';
+import OrdersForm from './Formulario.jsx';
+import { useState , useEffect} from 'react';
+
+
 function Ordenes() {
+
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try{
+                const products = await getProducts();
+                setOrders(products);
+            }
+            catch(error){
+                console.error('Error al obtener los productos:', error);
+            }
+        }
+        fetchData();
+    },[]);
 
     function Porcentaje (porcent){
         if(porcent >= 90) return "#70d611"
@@ -15,8 +33,8 @@ function Ordenes() {
         <>
             <section className='contenedor-products'>
                 {orders.map((order) => (
-                    <div className='product' key={order.id}>
-                        <div>{order.id}</div>
+                    <div className='product' key={order._id}>
+                        <div>{order._id}</div>
                         <div>{order.info}</div>
                         <div>{order.progress}</div>
                         <div className='progress-bar' style={{ width: order.progress - 7 + "%", backgroundColor: Porcentaje(order.progress) }}>{order.progress + "%" }</div>
@@ -32,13 +50,15 @@ function Ordenes() {
 
 }
 function NavOrdenes(){
+    const [mostrarForm, setMostrarForm] = useState(false);
   return (
     <nav>
       <a  href=""> <span></span>Volver</a>
       <a href="">En espera</a>
       <a href="">Archivados</a>
-      <a href="#" onClick={getProducts}>Filtrar</a>
-      <a href="">Añadir</a>
+      <a href="#" >Filtrar</a>
+      <a href="#" onClick={() => setMostrarForm(true)}>Añadir</a>
+      <OrdersForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} />
     </nav>
   )
 }
