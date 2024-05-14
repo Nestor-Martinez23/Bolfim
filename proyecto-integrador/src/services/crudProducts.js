@@ -1,9 +1,9 @@
 
-const URL = 'http://localhost:3000/Products';
+const URL = 'http://localhost:3000/';
 
 async function getProducts() {
     try {
-        const response = await fetch(URL, {
+        const response = await fetch(`${URL}GetProducts`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -12,6 +12,7 @@ async function getProducts() {
         });
         const data = await response.json();
         const orders = data.products;
+        console.log(orders);
         return orders;
     } catch (error) {
         console.error('Error al obtener los productos:', error);
@@ -21,8 +22,9 @@ async function getProducts() {
 }
 
 async function createProduct(newProduct) {
+    console.log(newProduct);
     try {
-        const response = await fetch(URL, {
+        const response = await fetch(`${URL}CreateProducts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
