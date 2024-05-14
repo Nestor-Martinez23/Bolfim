@@ -15,7 +15,6 @@ app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud c
 async function connectToDatabase() {
     try {
         await client.connect();
-        console.log('Coenctado a la Base de Datos Bolfim');
         return client.db('Bolfim');
     } catch (error) {
         console.error('Error al conectarse a la Base de Datos:', error);
@@ -40,25 +39,44 @@ app.post('/login', async (req, res) => {
             userName: user.User_Name, 
             userRole: user.User_Rol 
         });
+        console.log('Conectado a la Base de Datos Bolfim');
     } catch (error) {
         console.error('Error de autenticación:', error);
         res.status(500).json({ message: 'Error de autenticación' });
     }
 });
 
-app.get('/Products', async (res) => {
+app.get('/GetProducts', async (req,res) => {
     try {
+        console.log('Obteniendo productos...');
         const db = await connectToDatabase();
         const collection = db.collection('orders');
         const products = await collection.find({}).toArray();
-
+        
         // Si se encuentran productos, envíalos en la respuesta
         res.status(200).json({ 
-            
+            products
         });
     } catch (error) {
         console.error('Error al obtener los productos:', error);
         res.status(500).json({ message: 'Error al obtener los productos' });
+    }
+});
+
+// Endpoint para manejar las solicitudes de creación de nuevos productos
+app.post('/CreateProducts', async (req, res) => {
+    const newProduct = req.body;
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('orders');
+        await collection.insertOne(newProduct);
+        
+        res.status(201).json({ message: 'Producto creado exitosamente' });
+        console.log('Producto creado exitosamente:', newProduct);
+    } catch (error) {
+        console.error('Error al crear un nuevo producto:', error);
+        res.status(500).json({ message: 'Error al crear un nuevo producto' });
     }
 });
 
