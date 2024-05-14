@@ -1,0 +1,12 @@
+.ModalForm {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.OrdenesForm {
+    background-color: white;
+    border: .2rem solid black;
+    border-radius: 2rem;
+    text-align: center;
+}
