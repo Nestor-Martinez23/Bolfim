@@ -1,6 +1,6 @@
 const orders = [
   {
-    id: '1',
+    id: '0',
     info: 'Información de la orden 1',
     progress: 25,
   },
