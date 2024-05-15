@@ -6,7 +6,7 @@ import {NavOrdenes} from '../components/Ordenes.jsx';
 import {NavAlmacen} from '../components/Almacen.jsx';
 import { PanelControl } from '../components/PanelControl.jsx'; 
 
-export function ChangePage(page) {
+export function ChangePage({page}) {
     switch(page){
         case "Ventas":
             return Ordenes()
@@ -19,7 +19,7 @@ export function ChangePage(page) {
     }
     
     }
-export function ChangeNav(page){
+export function ChangeNav({page}){
     switch(page){
         case "Ventas":
             return NavOrdenes()
