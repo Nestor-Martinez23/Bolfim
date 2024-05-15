@@ -1,6 +1,8 @@
 // server.mjs
 import express from 'express';
 import { MongoClient } from 'mongodb';
+import { ObjectId } from 'mongodb';
+
 import cors from 'cors';
 
 const app = express();
@@ -48,7 +50,6 @@ app.post('/login', async (req, res) => {
 
 app.get('/GetProducts', async (req,res) => {
     try {
-        console.log('Obteniendo productos...');
         const db = await connectToDatabase();
         const collection = db.collection('orders');
         const products = await collection.find({}).toArray();
@@ -79,6 +80,33 @@ app.post('/CreateProducts', async (req, res) => {
         res.status(500).json({ message: 'Error al crear un nuevo producto' });
     }
 });
+
+// Endpoint para manejar las solicitudes de eliminación de productos
+app.delete('/DeleteProducts/:id', async (req, res) => {
+    const productId = new ObjectId(req.params.id);
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('orders');
+        
+        // Verificar si el producto existe
+        const product = await collection.findOne({ _id: productId });
+        if (!product) {
+            res.status(404).json({ message: 'El producto no existe' });
+            return;
+        }
+
+        // Si el producto existe, eliminarlo
+        await collection.deleteOne({ _id: productId });
+        
+        res.status(200).json({ message: 'Producto eliminado exitosamente' });
+        console.log(`Producto con ID ${productId} eliminado exitosamente`);
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+        res.status(500).json({ message: 'Error al eliminar el producto con ID:', productId });
+    }
+});
+
 
 async function startServer() {
     try {
