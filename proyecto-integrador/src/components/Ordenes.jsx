@@ -1,13 +1,25 @@
-import Icon from '../assets/dots-vertical.svg'
+import IconDel from '../assets/IconDel.svg'
+import IconEdit from '../assets/IconEdit.svg'
 import '../styles/Modales.css';
-import {getProducts}  from '../services/crudProducts.js';
-import OrdersForm from './Formulario.jsx';
+import {getProducts,deleteProduct }  from '../services/crudProducts.js';
+import OrdersForm from '../hooks/Formulario.jsx';
 import { useState , useEffect} from 'react';
 
-
 function Ordenes() {
-
+    
     const [orders, setOrders] = useState([]);
+
+    const handleDelete = (e) => {
+        const orderId = e.target.closest('.product').getAttribute('data-id');
+        if (window.confirm(`        
+                ¿Estás seguro de que deseas eliminar este producto?
+                            ID: ${orderId}
+        `
+        )) {
+            deleteProduct(orderId);
+            window.location.reload();
+        }
+    }
 
     useEffect(() => {
         async function fetchData() {
@@ -19,7 +31,7 @@ function Ordenes() {
                 console.error('Error al obtener los productos:', error);
             }
         }
-        fetchData();
+       fetchData();
     },[]);
 
     function Porcentaje (porcent){
@@ -33,12 +45,16 @@ function Ordenes() {
         <>
             <section className='contenedor-products'>
                 {orders.map((order) => (
-                    <div className='product' key={order._id}>
+                    <div className='product' key={order._id} data-id={order._id}>
                         <div>{order._id}</div>
                         <div>{order.info}</div>
-                        <div>{order.progress}</div>
+                        <div>{order.fecha}</div>
                         <div className='progress-bar' style={{ width: order.progress - 7 + "%", backgroundColor: Porcentaje(order.progress) }}>{order.progress + "%" }</div>
-                        <div> <a  href="#"><img src={Icon} alt=""  /></a></div>
+                        <div> <a  className="delete-Products"href="#">
+                            <img src={IconEdit} alt="icon_editar" /> 
+                            <img src={IconDel} alt="icon_eliminar" onClick={handleDelete}  />
+                            </a>
+                        </div>
                     </div>
                 ))}
             </section>
@@ -58,7 +74,8 @@ function NavOrdenes(){
       <a href="">Archivados</a>
       <a href="#" >Filtrar</a>
       <a href="#" onClick={() => setMostrarForm(true)}>Añadir</a>
-      <OrdersForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} />
+      {/* Agregamos el formulario solo si mostrarForm es true */}
+      {mostrarForm && <OrdersForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} />}
     </nav>
   )
 }
