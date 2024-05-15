@@ -67,12 +67,11 @@ function MainMenu() {
                 <div className="right-section">
                     <div className='contenedor-nav-h1'>
                         <h1 className='h1-menu'>{page}</h1>
-                        {ChangeNav(page)}
+                        <ChangeNav page={page} />
                     </div>
 
                     <div className='contenedor-servicio' >
-                         {ChangePage(page)}
-
+                         <ChangePage page={page} />
                     </div>
 
 
