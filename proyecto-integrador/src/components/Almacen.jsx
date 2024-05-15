@@ -1,4 +1,5 @@
 import materiaPrima from "../mocks/almacen.js";
+import IconDats from "../assets/dots-vertical.svg";
 function Almacen() {
    
     
@@ -11,6 +12,7 @@ function Almacen() {
                         <div>{materia.name}</div>
                         <div>{materia.date}</div>
                         <div >{materia.weight}</div>
+                        <div>      <img src={IconDats} alt="eliminar" /></div>
                     </div>
                 ))}
             </section>
@@ -28,6 +30,7 @@ function NavAlmacen(){
       <a href="">Materia Prima</a>
       <a href="">Materia Prima en</a>
       <a href="">Productos Terminados</a>
+      
     </nav>
   )
 }
