@@ -81,6 +81,34 @@ app.post('/CreateProducts', async (req, res) => {
     }
 });
 
+// Endpoint para manejar las solicitudes de actualización de productos
+app.put('/UpdateProduct/:id', async (req, res) => {
+    const productId = new ObjectId(req.params.id);
+    console.log(productId);
+    const updatedProduct = req.body;
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('orders');
+        
+        // Verificar si el producto existe
+        const product = await collection.findOne({ _id: productId });
+        if (!product) {
+            res.status(404).json({ message: 'El producto no existe' });
+            return;
+        }
+
+        // Actualizar el producto
+        await collection.updateOne({ _id: productId }, { $set: updatedProduct });
+        
+        res.status(200).json({ message: 'Producto actualizado exitosamente' });
+        console.log(`Producto con ID ${productId} actualizado exitosamente`);
+    } catch (error) {
+        console.error('Error al actualizar el producto:', error);
+        res.status(500).json({ message: 'Error al actualizar el producto con ID:', productId });
+    }
+});
+
 // Endpoint para manejar las solicitudes de eliminación de productos
 app.delete('/DeleteProducts/:id', async (req, res) => {
     const productId = new ObjectId(req.params.id);
