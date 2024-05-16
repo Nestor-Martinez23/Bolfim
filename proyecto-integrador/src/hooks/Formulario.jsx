@@ -1,6 +1,8 @@
 import Modal from 'react-modal';
 import { createProduct, updateProduct } from '../services/crudProducts.js';
+import '../styles/Modales.css';
 Modal.setAppElement('#root');
+
 
 function OrdersForm({isOpen, onRequestClose}) {
     
@@ -8,7 +10,6 @@ function OrdersForm({isOpen, onRequestClose}) {
     const handleForm = (e) => {
         e.preventDefault();
         const form = e.target;
-        console.log(form);  
         const newProduct = {
             info: form.nombre.value,
             progress: form.cantidad.value,
@@ -48,11 +49,9 @@ function OrdersForm({isOpen, onRequestClose}) {
 }
 
 function UpdateForm({isOpen, onRequestClose, idToUpdate, nameToUpdate}) {
-    console.log(idToUpdate, nameToUpdate)
-    const handleForm = (e) => {
+    const handleForm2 = (e) => {
         e.preventDefault();
         const form = e.target;
-        console.log(form);  
         const toUpdate = {
             progress: form.cantidad.value,
             fecha: form.fecha.value
@@ -62,22 +61,21 @@ function UpdateForm({isOpen, onRequestClose, idToUpdate, nameToUpdate}) {
         form.reset();
         onRequestClose();
         window.location.reload();
-
     }
     return (
         <Modal 
             isOpen={isOpen}
             onRequestClose={onRequestClose}
             contentLabel='Actualizar Producto'
-            className='ModalFormUpdate'
+            className='ModalForm2'
         >
-        <div className='OrdenesFormUpdate'>
-            <form id="OrdenesForm_contenedor"  onSubmit={handleForm}>
+        <div className='OrdenesForm2'>
+            <form id="OrdenesForm_contenedor2"  onSubmit={handleForm2}>
                 <h2>Actualizar: {nameToUpdate}</h2>
                 <input type="number" name='cantidad' placeholder="Cantidad"/>
                 <input type="date" name="fecha"></input>
            
-                <button type="submit">Añadir Producto</button>
+                <button type="submit">Actualizar Producto</button>
             </form>
         </div>
             
