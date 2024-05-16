@@ -42,8 +42,9 @@ async function createProduct(newProduct) {
 
 // Función para actualizar un producto
 async function updateProduct(id_Product, productUpdated) {
+    console.log("a actualizar:",id_Product, productUpdated);
     try {
-        const response = await fetch(`${URL}/${id_Product}`, {
+        const response = await fetch(`${URL}UpdateProduct/${id_Product}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
