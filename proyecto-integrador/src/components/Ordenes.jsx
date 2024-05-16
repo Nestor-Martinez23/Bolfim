@@ -1,6 +1,6 @@
 import IconDel from '../assets/IconDel.svg'
 import IconEdit from '../assets/IconEdit.svg'
-import '../styles/Modales.css';
+
 import {getProducts,deleteProduct }  from '../services/crudProducts.js';
 import {OrdersForm, UpdateForm}  from '../hooks/Formulario.jsx';
 import { useState , useEffect} from 'react';
@@ -23,10 +23,14 @@ function Ordenes() {
 
     const [mostrarForm, setMostrarForm] = useState(false);
     const [idToUpdate, setIdToUpdate] = useState('');
+    const [nameOrder, setNameOrder] = useState('');
     const handleUpdate = (e) => {
         setMostrarForm(true)
         const orderId = e.target.closest('.product').getAttribute('data-id');
         setIdToUpdate(orderId);
+        const orderName = e.target.closest('.product').querySelector('div:nth-child(2)').textContent;
+        setNameOrder(orderName);
+        
     }
 
     useEffect(() => {
@@ -60,7 +64,7 @@ function Ordenes() {
                         <div className='progress-bar' style={{ width: order.progress - 7 + "%", backgroundColor: Porcentaje(order.progress) }}>{order.progress + "%" }</div>
                         <div> <a  className="delete-Products"href="#">
                             <img src={IconEdit} onClick={handleUpdate} alt="icon_editar" /> 
-                                    {mostrarForm && <UpdateForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)}  idToUpdate={idToUpdate} nameToUpdate = {order.info}/>}
+                                    {mostrarForm && <UpdateForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)}  idToUpdate={idToUpdate} nameToUpdate = {nameOrder}/>}
                             <img src={IconDel} alt="icon_eliminar" onClick={handleDelete}  />
                             </a>
                         </div>
