@@ -1,5 +1,5 @@
-import IconDel from '../assets/IconDel.svg'
-import IconEdit from '../assets/IconEdit.svg'
+import IconDel from '../assets/icons/IconDel.svg'
+import IconEdit from '../assets/icons/IconEdit.svg'
 
 import {getProducts,deleteProduct }  from '../services/crudProducts.js';
 import {OrdersForm, UpdateForm}  from '../hooks/Formulario.jsx';
