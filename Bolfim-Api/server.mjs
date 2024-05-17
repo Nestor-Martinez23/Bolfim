@@ -23,13 +23,14 @@ async function connectToDatabase() {
     }
 }
 
+//Validar usuario
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     
     try {
         const db = await connectToDatabase();
         const collection = db.collection('users');
-        const user = await collection.findOne({ User_Email: email, User_Password: password });
+        const user = await collection.findOne({ email: email, password: password });
         if (!user) {
             res.status(401).json({ message: 'Credenciales inválidas' });
             return;
@@ -38,8 +39,8 @@ app.post('/login', async (req, res) => {
         // Si se encontró el usuario, enviar su nombre de usuario y rol en la respuesta
         res.status(200).json({ 
             message: 'Inicio de sesión exitoso', 
-            userName: user.User_Name, 
-            userRole: user.User_Rol 
+            userName: user.name, 
+            userRole: user.rol 
         });
         console.log('Conectado a la Base de Datos Bolfim');
     } catch (error) {
@@ -48,6 +49,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// CRUD para productos
 app.get('/GetProducts', async (req,res) => {
     try {
         const db = await connectToDatabase();
@@ -132,6 +134,90 @@ app.delete('/DeleteProducts/:id', async (req, res) => {
     } catch (error) {
         console.error('Error al eliminar el producto:', error);
         res.status(500).json({ message: 'Error al eliminar el producto con ID:', productId });
+    }
+});
+
+
+// CRUD para usuarios
+app.get('/GetUsers', async (req, res) => {
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('users');
+        const users = await collection.find({}).toArray();
+        
+        // Si se encuentran usuarios, envíalos en la respuesta
+        res.status(200).json({ users });
+    } catch (error) {
+        console.error('Error al obtener los usuarios:', error);
+        res.status(500).json({ message: 'Error al obtener los usuarios' });
+    }
+});
+
+app.post('/CreateUsers', async (req, res) => {
+    const newUser = req.body;
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('users');
+        await collection.insertOne(newUser);
+        
+        res.status(201).json({ message: 'Usuario creado exitosamente' });
+        console.log('Usuario creado exitosamente:', newUser);
+    } catch (error) {
+        console.error('Error al crear un nuevo usuario:', error);
+        res.status(500).json({ message: 'Error al crear un nuevo usuario' });
+    }
+});
+
+app.put('/UpdateUsers/:id', async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    console.log(userId);
+    const updatedUser = req.body;
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('users');
+        
+        // Verificar si el usuario existe
+        const user = await collection.findOne({ _id: userId });
+        if (!user) {
+            res.status(404).json({ message: 'El usuario no existe' });
+            return;
+        }
+
+        // Actualizar el usuario
+        await collection.updateOne({ _id: userId }, { $set: updatedUser });
+        
+        res.status(200).json({ message: 'Usuario actualizado exitosamente' });
+        console.log(`Usuario con ID ${userId} actualizado exitosamente`);
+    } catch (error) {
+        console.error('Error al actualizar el usuario:', error);
+        res.status(500).json({ message: 'Error al actualizar el usuario con ID:', userId });
+    }
+});
+
+app.delete('/DeleteUsers/:id', async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('users');
+        
+        // Verificar si el usuario existe
+        const user = await collection.findOne({ _id: userId });
+        if (!user) {
+            res.status(404).json({ message: 'El usuario no existe' });
+            return;
+        }
+
+        // Si el usuario existe, eliminarlo
+        await collection.deleteOne({ _id: userId });
+        
+        res.status(200).json({ message: 'Usuario eliminado exitosamente' });
+        console.log(`Usuario con ID ${userId} eliminado exitosamente`);
+    } catch (error) {
+        console.error('Error al eliminar el usuario:', error);
+        res.status(500).json({ message: 'Error al eliminar el usuario con ID:', userId });
     }
 });
 
