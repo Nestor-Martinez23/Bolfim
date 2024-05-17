@@ -1,5 +1,5 @@
 import '../styles/Login.css';
-import bolfimLogo from '../assets/bolfim.png';
+import bolfimLogo from '../assets/img/bolfim.png';
 import checkUser from '../services/CheckUser.js';
 
 function Login() {
