@@ -1,3 +1,4 @@
+const URL = 'http://localhost:3000/';
 export const checkUser = async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
@@ -5,7 +6,7 @@ export const checkUser = async (e) => {
     console.log("recibido:", email, password);
 
     try {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch(`${URL}login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
