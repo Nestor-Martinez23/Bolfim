@@ -1,10 +1,10 @@
 import '../styles/MainMenu.css';
 import '../styles/PanelControl.css'
-import logoutIcon from '../assets/logout.svg';
-import help from '../assets/help.svg';
-import IconConfig from '../assets/IconConfig.svg';
-import userImage from '../assets/userImage.png';
-import {ChangePage, ChangeNav} from '../services/ChangePage.js';
+import logoutIcon from '../assets/icons/logout.svg';
+import help from '../assets/icons/help.svg';
+import IconConfig from '../assets/icons/IconConfig.svg';
+import userImage from '../assets/img/userImage.png';
+import {ChangePage, ChangeNav} from '../services/ChangePage.jsx';
 import { useState } from 'react';
 import useAuth from '../hooks/UseAuth.jsx';
 
