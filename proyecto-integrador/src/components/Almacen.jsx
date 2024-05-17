@@ -1,5 +1,5 @@
 import materiaPrima from "../mocks/almacen.js";
-import IconDats from "../assets/dots-vertical.svg";
+import IconDats from "../assets/icons/dots-vertical.svg";
 function Almacen() {
    
     
