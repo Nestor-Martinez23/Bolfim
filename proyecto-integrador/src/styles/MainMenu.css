@@ -111,7 +111,7 @@ border-radius: 5rem ;
 }
 .contenedor-nav-h1 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content:right;
   align-items: center;
 }
 .contenedor-nav-h1 nav a {
