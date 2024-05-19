@@ -9,7 +9,7 @@ import { useState } from 'react';
 import useAuth from '../hooks/UseAuth.jsx';
 
 function MainMenu() {
-    const [page, setPage] = useState('Ventas');
+    const [page, setPage] = useState('Panel');
     const { logout } = useAuth();
     const userData = localStorage.getItem('userData');
     const { userName, userRole } = JSON.parse(userData);
@@ -17,7 +17,6 @@ function MainMenu() {
    
 
     const handleLogout = () => {
-        // Llama a la función de cierre de sesión proporcionada como prop
         logout();
     };
 
