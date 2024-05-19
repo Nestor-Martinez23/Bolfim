@@ -11,7 +11,6 @@ async function getUsers() {
         });
         const data = await response.json();
         const users = data.users;
-        console.log(users);
         return users;
     } catch (error) {
         console.error('Error al obtener los usuarios:', error);
@@ -21,7 +20,6 @@ async function getUsers() {
 }
 
 async function createUsers(newUser) {
-    console.log(newUser);
     try {
         const response = await fetch(`${URL}CreateUsers`, {
             method: 'POST',
@@ -41,7 +39,6 @@ async function createUsers(newUser) {
 
 // Función para actualizar un producto
 async function updateUsers(id_user, userUpdated) {
-    console.log("a actualizar:",id_user, userUpdated);
     try {
         const response = await fetch(`${URL}UpdateUsers/${id_user}`, {
             method: 'PUT',
@@ -62,7 +59,6 @@ async function updateUsers(id_user, userUpdated) {
 
 // Función para eliminar un producto
 async function deleteUsers(id_user) {
-    console.log(id_user);
     try {
         const response = await fetch(`${URL}DeleteUsers/${id_user}`, {
             method: 'DELETE',
