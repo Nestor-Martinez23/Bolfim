@@ -2,6 +2,7 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 import { ObjectId } from 'mongodb';
+
 import cors from 'cors';
 
 const app = express();
@@ -10,10 +11,8 @@ const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Habilita CORS globalmente para todas las rutas
 app.use(cors());
-//app.use(cors());
-//app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud como JSON
+app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud como JSON
 
 async function connectToDatabase() {
     try {
