@@ -28,9 +28,11 @@ export const checkUser = async (e) => {
             // Autenticación fallida
             const errorData = await response.json();
             throw new Error(errorData.message);
+            
         }
     } catch (error) {
         console.error('Error de autenticación:', error.message);
+        alert(`Error de autenticación: ${error.message}`);
         // Puedes mostrar un mensaje de error al usuario aquí si lo deseas
     }
 
