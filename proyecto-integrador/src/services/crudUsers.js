@@ -2,7 +2,7 @@ const URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 async function getUsers() {
     try {
-        const response = await fetch(`${URL}GetUsers`, {
+        const response = await fetch(`${URL}/GetUsers`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ async function getUsers() {
 
 async function createUsers(newUser) {
     try {
-        const response = await fetch(`${URL}CreateUsers`, {
+        const response = await fetch(`${URL}/CreateUsers`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ async function createUsers(newUser) {
 // Función para actualizar un producto
 async function updateUsers(id_user, userUpdated) {
     try {
-        const response = await fetch(`${URL}UpdateUsers/${id_user}`, {
+        const response = await fetch(`${URL}/UpdateUsers/${id_user}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ async function updateUsers(id_user, userUpdated) {
 // Función para eliminar un producto
 async function deleteUsers(id_user) {
     try {
-        const response = await fetch(`${URL}DeleteUsers/${id_user}`, {
+        const response = await fetch(`${URL}/DeleteUsers/${id_user}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

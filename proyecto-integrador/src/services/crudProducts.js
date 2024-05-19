@@ -3,7 +3,7 @@ const URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 async function getProducts() {
     try {
-        const response = await fetch(`${URL}GetProducts`, {
+        const response = await fetch(`${URL}/GetProducts`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ async function getProducts() {
 async function createProduct(newProduct) {
     console.log(newProduct);
     try {
-        const response = await fetch(`${URL}CreateProducts`, {
+        const response = await fetch(`${URL}/CreateProducts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ async function createProduct(newProduct) {
 async function updateProduct(id_Product, productUpdated) {
     console.log("a actualizar:",id_Product, productUpdated);
     try {
-        const response = await fetch(`${URL}UpdateProduct/${id_Product}`, {
+        const response = await fetch(`${URL}/UpdateProduct/${id_Product}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ async function updateProduct(id_Product, productUpdated) {
 async function deleteProduct(id_Product) {
     console.log(id_Product);
     try {
-        const response = await fetch(`${URL}DeleteProducts/${id_Product}`, {
+        const response = await fetch(`${URL}/DeleteProducts/${id_Product}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
