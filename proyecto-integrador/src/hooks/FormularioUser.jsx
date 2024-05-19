@@ -52,7 +52,6 @@ function UpdateForm({ isOpen, onRequestClose, idToUpdate, nameToUpdate }) {
         updateUsers(idToUpdate, toUpdate);
         form.reset();
         onRequestClose();
-        window.location.reload();
     };
 
     return (

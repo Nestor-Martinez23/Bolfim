@@ -37,7 +37,7 @@ async function createUsers(newUser) {
     }
 }
 
-// Función para actualizar un producto
+// Función para actualizar un usuario
 async function updateUsers(id_user, userUpdated) {
     try {
         const response = await fetch(`${URL}UpdateUsers/${id_user}`, {
@@ -57,7 +57,7 @@ async function updateUsers(id_user, userUpdated) {
     }
 }
 
-// Función para eliminar un producto
+// Función para eliminar un usuario
 async function deleteUsers(id_user) {
     try {
         const response = await fetch(`${URL}DeleteUsers/${id_user}`, {

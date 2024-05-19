@@ -20,7 +20,6 @@ function OrdersForm({isOpen, onRequestClose}) {
         createProduct(newProduct);
         form.reset();
         onRequestClose();
-        window.location.reload();
 
     }
     return (
@@ -60,7 +59,6 @@ function UpdateForm({isOpen, onRequestClose, idToUpdate, nameToUpdate}) {
         updateProduct(idToUpdate, toUpdate);
         form.reset();
         onRequestClose();
-        window.location.reload();
     }
     return (
         <Modal 
