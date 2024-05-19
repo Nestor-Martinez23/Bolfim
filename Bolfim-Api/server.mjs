@@ -11,8 +11,13 @@ const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(cors());
-app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud como JSON
+const corsOptions = {
+    origin: process.env.FRONTEND_ORIGIN, // Utiliza la variable de entorno para el origen del frontend
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+//app.use(cors());
+//app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud como JSON
 
 async function connectToDatabase() {
     try {
