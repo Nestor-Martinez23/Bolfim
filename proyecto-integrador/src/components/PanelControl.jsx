@@ -3,19 +3,22 @@ import padlock from '../assets/icons/panel-padlock.svg';
 import paneluser from '../assets/icons/panel-user.svg';
 import delUser from '../assets/iconsUser/delUser.svg';
 import editUser from '../assets/iconsUser/editUser.svg';
+import imgUser from '../assets/iconsUser/imgUser.svg';
 import { getUsers, deleteUsers } from '../services/crudUsers.js';
-import { UpdateForm } from '../hooks/Formulario.jsx';
+import { UpdateForm , UsersForm } from '../hooks/FormularioUser.jsx';
 
 function PanelControl() {
     const [panel, setPanel] = useState(0);
     const [users, setUsers] = useState([]);
     const [mostrarForm, setMostrarForm] = useState(false);
+    const [mostrarFormUp, setMostrarFormUp] = useState(false);
     const [idToUpdate, setIdToUpdate] = useState('');
-    const [nameOrder, setNameOrder] = useState('');
+    const [nameUser, setNameUser] = useState('');
 
     const handleDelete = async (e) => {
         const userId = e.target.closest('.user').getAttribute('data-id');
-        if (window.confirm(`¿Estás seguro de que deseas eliminar este usuario?\nID: ${userId}`)) {
+        const userName = e.target.closest('.user').getAttribute('data-name')
+        if (window.confirm(`¿Estás seguro de que deseas eliminar a ${userName}?\nID: ${userId}`)) {
             try {
                 await deleteUsers(userId);
                 setUsers(users.filter(user => user._id !== userId));
@@ -26,11 +29,11 @@ function PanelControl() {
     };
 
     const handleUpdate = (e) => {
-        setMostrarForm(true);
+        setMostrarFormUp(true);
         const userId = e.target.closest('.user').getAttribute('data-id');
         setIdToUpdate(userId);
         const userName = e.target.closest('.user').querySelector('div:nth-child(2)').textContent;
-        setNameOrder(userName);
+        setNameUser(userName);
     };
 
     useEffect(() => {
@@ -45,11 +48,9 @@ function PanelControl() {
         fetchData();
     }, []);
 
-    console.log("y los domis?",users)
-
-    if (panel === 0) {
-        return (
-            <>
+    return (
+        <>
+            {panel === 0 ? (
                 <section className='contenedor-paneles-menu'>
                     <div className='panel-rol'>
                         <h3>Permisos/Roles</h3>
@@ -64,29 +65,29 @@ function PanelControl() {
                         </a>
                     </div>
                 </section>
-                <div className='scroll-bar-panel'></div>
-            </>
-        );
-    } else if (panel === 1) {
-        return (
-            <>
+            ) : panel === 1 ? (
                 <section className='contenedor_paneles-users'>
                     <nav>
                         <h2>Menu Usuarios</h2>
+                        <div>
+                        <a className='boton_back' href="#" onClick={() => setMostrarForm(true)}>Añadir</a>
+                           {mostrarForm && <UsersForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} />}
                         <a className="boton_back" href="#" onClick={() => setPanel(0)}>Volver</a>
+
+                        </div>
+
                     </nav>
                     <section className='contenedor_users'>
                         {users && users.length > 0 ? (
                             users.map((user) => (
-                                <div className='user' key={user._id} data-id={user._id}>
-                                    <div>imagen</div>
+                                <div className='user' key={user._id} data-id={user._id} data-name={user.name}>
+                                    <div> <img src={imgUser} alt="imagen de usuario" /></div>
                                     <div>{user.name}</div>
                                     <div>{user.rol}</div>
                                     <div>{user.email}</div>
                                     <div>
                                         <a className="delete-Products" href="#">
                                             <img src={editUser} onClick={handleUpdate} alt="icon_editar" />
-                                            {mostrarForm && <UpdateForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} idToUpdate={idToUpdate} nameToUpdate={nameOrder} />}
                                             <img src={delUser} alt="icon_eliminar" onClick={handleDelete} />
                                         </a>
                                     </div>
@@ -97,21 +98,38 @@ function PanelControl() {
                         )}
                     </section>
                 </section>
-                <div className='scroll-bar-panel'></div>
-            </>
-        );
-    } else if (panel === 2) {
-        return (
-            <>
-                <section className='contenedor-paneles'>
-                    <h2>Menu Roles</h2>
-                    <div className='panel-rol'></div>
-                    <a className="boton_back" href="#" onClick={() => setPanel(0)}>Volver</a>
+            ) : (
+                <section className='contenedor_paneles-users'>
+                    <nav>
+                        <h2>Menu Roles</h2>
+                        <a className="boton_back" href="#" onClick={() => setPanel(0)}>Volver</a>
+                    </nav>
+                    <section className='contenedor_users-rols'>
+                        {users && users.length > 0 ? (
+                            users.map((user) => (
+                                <div className='user-rols' key={user._id} data-id={user._id} data-name={user.name}>
+                                    <div> <img src={imgUser} alt="imagen de usuario" /></div>
+                                    <div>{user.name}</div>
+                                    <div>{user.rol}</div>
+                                </div>
+                            ))
+                        ) : (
+                            <p>No hay usuarios disponibles.</p>
+                        )}
+                    </section>
                 </section>
-                <div className='scroll-bar-panel'></div>
-            </>
-        );
-    }
+            )}
+            <div className='scroll-bar-panel'></div>
+            {mostrarFormUp && (
+                <UpdateForm
+                    isOpen={mostrarFormUp}
+                    onRequestClose={() => setMostrarFormUp(false)}
+                    idToUpdate={idToUpdate}
+                    nameToUpdate={nameUser}
+                />
+            )}
+        </>
+    );
 }
 
 export { PanelControl };
