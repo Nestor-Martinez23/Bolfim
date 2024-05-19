@@ -24,7 +24,7 @@
 
 }
 .contenedor_paneles-users nav a{
-
+        
         font-size: 2rem;
         text-decoration: none;
         color: black;
@@ -93,6 +93,36 @@
  font-size: x-large;
  color: whitesmoke;
 }
+
+
+/* Path: proyecto-integrador/src/styles/PanelControl.css */
+
+.contenedor_users-rols{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0.5rem 2rem;
+    border-bottom: .1rem solid rgba(0, 0, 0, 0.14);
+    overflow-x: auto;
+    max-height: 33.927rem;
+}
+
+.user-rols{
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr;
+    border: .3rem solid rgba(0, 0, 0, 0.084);
+    border-radius: 1.5rem;
+    height: 18.6rem;
+    justify-content: center;
+    text-align: center;
+    font-weight: bolder;
+
+}
+.user-rols img{
+    height: 8rem;
+    width: 8rem;
+}
+
 
 
 
