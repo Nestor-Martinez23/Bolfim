@@ -17,7 +17,6 @@ function UsersForm({ isOpen, onRequestClose }) {
         createUsers(newUser);
         form.reset();
         onRequestClose();
-        window.location.reload();
     };
 
     return (
