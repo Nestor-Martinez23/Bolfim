@@ -222,6 +222,23 @@ app.delete('/DeleteUsers/:id', async (req, res) => {
 });
 
 
+app.get('/GetAlmacen', async (req,res) => {
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('materiaPrima');
+        const materias = await collection.find({}).toArray();
+        
+        // Si se encuentran productos, envíalos en la respuesta
+        res.status(200).json({ 
+            materias
+        });
+    } catch (error) {
+        console.error('Error al obtener la Materia Prima:', error);
+        res.status(500).json({ message: 'Error al obtener la Materia Prima' });
+    }
+});
+
+
 async function startServer() {
     try {
         await connectToDatabase();
