@@ -11,7 +11,6 @@ async function getAlmacen() {
         });
         const data = await response.json();
         const materiasPri = data.materias;
-        console.log(materiasPri);
         return materiasPri;
     } catch (error) {
         console.error('Error al obtener los productos:', error);
