@@ -17,7 +17,6 @@ function Ordenes() {
         `
         )) {
             deleteProduct(orderId);
-            window.location.reload();
         }
     }
 
