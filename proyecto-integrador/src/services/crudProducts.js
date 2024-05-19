@@ -12,7 +12,6 @@ async function getProducts() {
         });
         const data = await response.json();
         const orders = data.products;
-        console.log(orders);
         return orders;
     } catch (error) {
         console.error('Error al obtener los productos:', error);
