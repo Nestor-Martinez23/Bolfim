@@ -2,7 +2,7 @@ const URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 async function getAlmacen() {
     try {
-        const response = await fetch(`${URL}/GetAlmacen`, {
+        const response = await fetch(`${URL}GetAlmacen`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
