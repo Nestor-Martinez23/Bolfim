@@ -1,5 +1,5 @@
 const URL = 'http://localhost:3000/';
-export const checkUser = async (e) => {
+const checkUser = async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
