@@ -3,7 +3,7 @@ const checkUser = async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    console.log("recibido:", email, password);
+
 
     try {
         const response = await fetch(`${URL}login`, {
