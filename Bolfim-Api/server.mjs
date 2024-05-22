@@ -35,16 +35,18 @@ app.post('/login', async (req, res) => {
             res.status(401).json({ message: 'Credenciales inválidas' });
             return;
         }
-        
         // Si se encontró el usuario, enviar su nombre de usuario y rol en la respuesta
         res.status(200).json({ 
             message: 'Inicio de sesión exitoso', 
             userName: user.name, 
             userRole: user.rol 
         });
+        const accesDate = new Date().toISOString();
         console.log('Conectado a la Base de Datos Bolfim');
+        console.log("Inicio de Sesion como: ",user.name, " Fecha: ",accesDate)
     } catch (error) {
         console.error('Error de autenticación:', error);
+        
         res.status(500).json({ message: 'Error de autenticación' });
     }
 });
