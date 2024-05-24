@@ -6,7 +6,8 @@
     overflow-y: auto;
     max-height: 40.7118rem;
   }
-  .product{
+  .product,
+  .materia{
     display: grid;
     grid-template-columns: 1fr 2fr 2.5fr 5fr .8fr ;
     border: .3rem solid rgba(0, 0, 0, 0.084);
@@ -14,13 +15,15 @@
     height: 8.6rem;
 
   }
-  .product div{
+  .product div,
+  .materia div{
     display: flex;
     justify-content: center;
     align-items: center;
     border-right: .1rem solid rgba(0, 0, 0, 0.14);
   }
-  .product div:last-child{
+  .product div:last-child,
+  .materia div:last-child{
     border-right:none;
     border-left: .1rem solid rgba(0, 0, 0, 0.14);
   }
