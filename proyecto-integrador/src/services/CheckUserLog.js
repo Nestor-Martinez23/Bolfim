@@ -1,4 +1,4 @@
-const URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/';
 const checkUser = async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
