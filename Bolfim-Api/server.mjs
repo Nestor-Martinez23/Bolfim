@@ -240,6 +240,76 @@ app.get('/GetAlmacen', async (req,res) => {
     }
 });
 
+// Endpoint para manejar las solicitudes de creación de nuevas materias primas
+app.post('/CreateAlmacen', async (req, res) => {
+    const newMateria = req.body;
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('materiaPrima');
+        await collection.insertOne(newMateria);
+        
+        res.status(201).json({ message: 'Materia creada exitosamente' });
+        console.log('Materia creada exitosamente:', newMateria);
+    } catch (error) {
+        console.error('Error al crear una nueva materia:', error);
+        res.status(500).json({ message: 'Error al crear una nueva materia' });
+    }
+});
+
+// Endpoint para manejar las solicitudes de actualización de materias primas
+app.put('/UpdateAlmacen/:id', async (req, res) => {
+    const materiaId = new ObjectId(req.params.id);
+    console.log(materiaId);
+    const updatedMateria = req.body;
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('materiaPrima');
+        
+        // Verificar si el producto existe
+        const materia = await collection.findOne({ _id: materiaId });
+        if (!materia) {
+            res.status(404).json({ message: 'La materia no existe' });
+            return;
+        }
+
+        // Actualizar el producto
+        await collection.updateOne({ _id: materiaId }, { $set: updatedMateria });
+        
+        res.status(200).json({ message: 'Materia actualizada exitosamente' });
+        console.log(`Materia con ID ${materiaId} actualizada exitosamente`);
+    } catch (error) {
+        console.error('Error al actualizar materia:', error);
+        res.status(500).json({ message: 'Error al actualizar el producto con ID:', materiaId });
+    }
+});
+
+// Endpoint para manejar las solicitudes de eliminación de productos
+app.delete('/DeleteAlmacen/:id', async (req, res) => {
+    const materiaId = new ObjectId(req.params.id);
+    
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('materiaPrima');
+        
+        // Verificar si el producto existe
+        const materia = await collection.findOne({ _id: materiaId });
+        if (!materia) {
+            res.status(404).json({ message: 'El producto no existe' });
+            return;
+        }
+
+        // Si la materia existe, eliminarlo
+        await collection.deleteOne({ _id: materiaId });
+        
+        res.status(200).json({ message: 'Materia prima eliminada exitosamente' });
+        console.log(`Materia con ID ${materiaId} eliminada exitosamente`);
+    } catch (error) {
+        console.error('Error al eliminar la materia:', error);
+        res.status(500).json({ message: 'Error al eliminar la materia con ID:', materiaId });
+    }
+});
 
 async function startServer() {
     try {
