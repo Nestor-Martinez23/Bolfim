@@ -86,7 +86,7 @@ function NavOrdenes() {
              <div></div>
              
             <a href="#" onClick={() => setMostrarForm(true)}>Añadir</a>
-            {/* Agregamos el formulario solo si mostrarForm es true */}
+           
             {mostrarForm && <OrdersForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} />}
             <a  href=""> <span></span>Volver</a> 
         </nav>
