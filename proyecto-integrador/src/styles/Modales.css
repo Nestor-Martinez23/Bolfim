@@ -5,12 +5,126 @@
     justify-content: center;
     align-items: center;
 }
+
 .OrdenesForm {
     background-color: white;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
     border: .2rem solid black;
     border-radius: 2rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.OrdenesForm h2,
+.OrdenesForm h3 {
     text-align: center;
 }
+
+.OrdenesForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+.OrdenesForm form > div {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.OrdenesForm input[type="text"],
+.OrdenesForm input[type="email"],
+.OrdenesForm input[type="tel"],
+.OrdenesForm input[type="number"],
+.OrdenesForm select {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.OrdenesForm .producto-cantidad {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.OrdenesForm .producto-cantidad select,
+.OrdenesForm .producto-cantidad input[type="number"] {
+    flex: 2;
+}
+
+.OrdenesForm .producto-cantidad button {
+    flex: 1;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+}
+
+.OrdenesForm .producto-cantidad button:hover {
+    background-color: #45a049;
+}
+
+.OrdenesForm button[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.OrdenesForm button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.datos-cliente{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.datos-cliente .nombre-cel{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+.OrdenesForm .productos-agregados {
+    max-height: 200px; /* Limita la altura del contenedor */
+    overflow-y: auto;  /* Añade desplazamiento vertical */
+ /* Opcional: ajusta el margen superior según sea necesario */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.OrdenesForm .productos-agregados ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid; /* Cambia a flex */
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.OrdenesForm .productos-agregados li {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex; /* Cambia a flex */
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+}
+
+
 .ModalForm2{
     background-color: rgba(255, 255, 255, 0.75);
     padding-top: 5rem;
