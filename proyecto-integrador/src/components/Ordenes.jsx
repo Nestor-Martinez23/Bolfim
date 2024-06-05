@@ -1,5 +1,6 @@
 import IconDel from '../assets/icons/IconDel.svg'
 import IconEdit from '../assets/icons/IconEdit.svg'
+import dotsvertical from '../assets/icons/dots-vertical.svg'
 
 import { getProducts, deleteProduct } from '../services/crudProducts.js';
 import { OrdersForm, UpdateForm } from '../hooks/Formulario.jsx';
@@ -63,9 +64,8 @@ function Ordenes() {
                         <div>{order.fecha}</div>
                         <div className='progress-bar' style={{ width: order.progress - 7 + "%", backgroundColor: Porcentaje(order.progress) }}>{order.progress + "%"}</div>
                         <div> <a className="delete-Products" href="#">
-                            <img src={IconEdit} onClick={handleUpdate} alt="icon_editar" />
+                            <img src={dotsvertical} onClick={handleUpdate} alt="icon_editar" />
                             {mostrarForm && <UpdateForm isOpen={mostrarForm} onRequestClose={() => setMostrarForm(false)} idToUpdate={idToUpdate} nameToUpdate={nameOrder} />}
-                            <img src={IconDel} alt="icon_eliminar" onClick={handleDelete} />
                         </a>
                         </div>
                     </div>
