@@ -12,8 +12,9 @@ function MateriaForm({isOpen, onRequestClose}) {
         const form = e.target;
         const newMateria = {
             name: form.name.value,
-            weight: form.weight.value,
-            date: form.date.value
+            date: form.date.value,
+            stock:0,
+            costoCliente:0,
 
         }
         console.log(newMateria);
@@ -31,9 +32,9 @@ function MateriaForm({isOpen, onRequestClose}) {
         >
         <div className='OrdenesForm'>
             <form id="OrdenesForm_contenedor"  onSubmit={handleForm}>
+            <button className="close-button" onClick={onRequestClose}>×</button>
                 <h2>Añadir Materia Prima</h2>
                 <input type="text" name="name" placeholder="Nombre de la materia prima" />
-                <input type="number" name='weight' placeholder="Cantidad"/>
                 <input type="date" name="date"></input>
            
                 <button type="submit">Añadir Materia</button>
@@ -52,7 +53,7 @@ function UpdateForm({isOpen, onRequestClose, idToUpdate, nameToUpdate}) {
         e.preventDefault();
         const form = e.target;
         const toUpdate = {
-            weight: form.weight.value,
+            stock:parseFloat(form.cantidad.value) ,
             date: form.date.value
 
         }
@@ -70,7 +71,7 @@ function UpdateForm({isOpen, onRequestClose, idToUpdate, nameToUpdate}) {
         <div className='OrdenesForm2'>
             <form id="OrdenesForm_contenedor2"  onSubmit={handleForm2}>
                 <h2>Actualizar: {nameToUpdate}</h2>
-                <input type="number" name='weight' placeholder="Cantidad"/>
+                <input type="number" name='cantidad' placeholder="Cantidad"/>
                 <input type="date" name="date"></input>
            
                 <button type="submit">Actualizar Materia</button>
