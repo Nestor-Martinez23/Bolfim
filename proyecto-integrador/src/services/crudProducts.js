@@ -20,6 +20,25 @@ async function getProducts() {
     
 }
 
+async function getProductById(id) {
+    try {
+        const response = await fetch(`${URL}GetProduct/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) {
+            throw new Error('Error al obtener la compra');
+        }
+        const compra = await response.json();
+        return compra;
+    } catch (error) {
+        console.error('Error al obtener la compra:', error);
+        throw error;
+    }
+}
+
 async function createProduct(newProduct) {
     console.log(newProduct);
     try {
@@ -38,6 +57,7 @@ async function createProduct(newProduct) {
         
     }
 }
+
 
 // Función para actualizar un producto
 async function updateProduct(id_Product, productUpdated) {
@@ -80,4 +100,4 @@ async function deleteProduct(id_Product) {
     }
 }
 
-export { getProducts, createProduct, updateProduct, deleteProduct };
+export { getProducts, createProduct, updateProduct, deleteProduct , getProductById };
