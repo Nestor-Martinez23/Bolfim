@@ -30,7 +30,7 @@ app.post('/login', async (req, res) => {
     try {
         const db = await connectToDatabase();
         const collection = db.collection('users');
-        const user = await collection.findOne({ email: email, password: password });
+        const user = await collection.findOne({ user_email: email, user_password: password });
         if (!user) {
             res.status(401).json({ message: 'Credenciales inválidas' });
             return;
@@ -38,12 +38,13 @@ app.post('/login', async (req, res) => {
         // Si se encontró el usuario, enviar su nombre de usuario y rol en la respuesta
         res.status(200).json({ 
             message: 'Inicio de sesión exitoso', 
-            userName: user.name, 
-            userRole: user.rol 
+            userName: user.user_name, 
+            userRole: user.user_rol,
+            userId: user._id
         });
         const accesDate = new Date().toISOString();
         console.log('Conectado a la Base de Datos Bolfim');
-        console.log("Inicio de Sesion como: ",user.name, " Fecha: ",accesDate)
+        console.log("Inicio de Sesion como: ",user.user_name, " Fecha: ",accesDate)
     } catch (error) {
         console.error('Error de autenticación:', error);
         
@@ -65,6 +66,24 @@ app.get('/GetProducts', async (req,res) => {
     } catch (error) {
         console.error('Error al obtener los productos:', error);
         res.status(500).json({ message: 'Error al obtener los productos' });
+    }
+});
+
+app.get('/GetProduct/:id', async (req, res) => {
+    const ordenId = new ObjectId(req.params.id);
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('orders');
+        const orden = await collection.findOne({ _id: ordenId });
+        
+        if (orden) {
+            res.status(200).json(orden);
+        } else {
+            res.status(404).json({ message: 'Orden no encontrada' });
+        }
+    } catch (error) {
+        console.error('Error al obtener la Orden:', error);
+        res.status(500).json({ message: 'Error al obtener la orden' });
     }
 });
 
@@ -258,6 +277,7 @@ app.post('/CreateAlmacen', async (req, res) => {
 });
 
 // Endpoint para manejar las solicitudes de actualización de materias primas
+// Endpoint para manejar las solicitudes de actualización de materias primas
 app.put('/UpdateAlmacen/:id', async (req, res) => {
     const materiaId = new ObjectId(req.params.id);
     console.log(materiaId);
@@ -284,7 +304,6 @@ app.put('/UpdateAlmacen/:id', async (req, res) => {
         res.status(500).json({ message: 'Error al actualizar el producto con ID:', materiaId });
     }
 });
-
 // Endpoint para manejar las solicitudes de eliminación de productos
 app.delete('/DeleteAlmacen/:id', async (req, res) => {
     const materiaId = new ObjectId(req.params.id);
@@ -308,6 +327,53 @@ app.delete('/DeleteAlmacen/:id', async (req, res) => {
     } catch (error) {
         console.error('Error al eliminar la materia:', error);
         res.status(500).json({ message: 'Error al eliminar la materia con ID:', materiaId });
+    }
+});
+
+app.post('/CreateCompra', async (req, res) => {
+    const newCompra = req.body;
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('compras');
+        await collection.insertOne(newCompra);
+        
+        // Si la compra se creó correctamente, envía la compra en la respuesta
+        res.status(200).json({ message: "Compra registrada correctamente" });
+        console.log('Compra registrada correctamente:', newCompra);
+    } catch (error) {
+        console.error('Error al registrar la compra:', error);
+        res.status(500).json({ message: 'Error al registrar la compra' });
+    }
+});
+
+app.get('/GetCompras', async (req, res) => {
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('compras');
+        const compras = await collection.find({}).toArray();
+        
+        // Si se encuentran compras, envíalas en la respuesta
+        res.status(200).json({ compras });
+    } catch (error) {
+        console.error('Error al obtener las compras:', error);
+        res.status(500).json({ message: 'Error al obtener las compras' });
+    }
+});
+app.get('/GetCompra/:id', async (req, res) => {
+    const compraId = new ObjectId(req.params.id);
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('compras');
+        const compra = await collection.findOne({ _id: compraId });
+        
+        if (compra) {
+            res.status(200).json(compra);
+        } else {
+            res.status(404).json({ message: 'Compra no encontrada' });
+        }
+    } catch (error) {
+        console.error('Error al obtener la compra:', error);
+        res.status(500).json({ message: 'Error al obtener la compra' });
     }
 });
 
