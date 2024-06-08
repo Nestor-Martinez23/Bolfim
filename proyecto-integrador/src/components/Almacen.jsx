@@ -47,13 +47,25 @@ const handleUpdate = (e) => {
     
     return (
         <>
+                <div className="materia-encabezado">
+                  <div></div>
+                  <div>Materia Prima</div>
+                  <div>Fecha</div>
+                  <div>Stock en Almacen</div>
+                  <div>Precio cliente</div>
+                  <div></div>
+                </div>
+        
             <section className='contenedor-products'>
-                {materiaPrima.map((materia) => (
+              
+              {materiaPrima && materiaPrima.length > 0 ? (
+                materiaPrima.map((materia) => (
                     <div className='materia' key={materia._id} data-id={materia._id}>
                         <div> <img src={IconCase} alt="icono de case" /></div>
                         <div>{materia.name}</div>
                         <div>{materia.date}</div>
-                        <div >{materia.weight} Kg</div>
+                        <div >{materia.stock} rollos</div>
+                        <div>${materia.costoCliente == 0 ? 0:materia.costoCliente }</div>
 
                         <div> <a className="delete-Products" href="#">
                             <img src={IconEdit} onClick={handleUpdate} alt="icon_editar" />
@@ -63,11 +75,12 @@ const handleUpdate = (e) => {
                         </div>
                         
                     </div>
-                ))}
-            </section>
-            <div className='scroll-bar'>
+                ))
+              ) : (
+                <p>No hay materia prima</p>
+            )}    
 
-            </div>
+            </section>
         </>
     ) 
 
