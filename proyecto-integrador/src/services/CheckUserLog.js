@@ -17,9 +17,9 @@ const checkUser = async (e) => {
             // Autenticación exitosa
             const data = await response.json();
             console.log(data.message);
-            const { userName, userRole } = data;
+            const { userName, userRole, userId } = data;
             // Obtener el nombre de usuario y rol de la respuesta
-            console.log("confirmado:", userName, userRole);
+            console.log("confirmado:", userName, userRole, userId);
             // Guardar los datos en localStorage
             localStorage.setItem('userData', JSON.stringify(data));
             localStorage.setItem('isLoggedIn', 'true');

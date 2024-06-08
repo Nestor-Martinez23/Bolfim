@@ -89,7 +89,8 @@ border-radius: 5rem ;
 }
 .right-section .contenedor-servicio{
   display: grid;
-  grid-template-columns: 12fr 1fr;
+  grid-template-rows: .5fr 5fr;
+  height: 447.83px;
 }
 
 .right-section p {

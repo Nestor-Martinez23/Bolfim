@@ -19,7 +19,7 @@ function PanelMenu({setPanel}) {
                     </a>
                 </div>
             </section>
-            <div className='scroll-bar-panel'></div>
+            
         </>
     );
 }
@@ -32,7 +32,7 @@ function PanelUsers({setPanel}) {
                 <div className="panel-user"></div>
                 <a className="boton_back" href="#" onClick={() => setPanel(0)}>Volver</a>
             </section>
-            <div className='scroll-bar-panel'></div>
+            
         </>
     );
 }
@@ -45,7 +45,7 @@ function PanelRol({setPanel}) {
                 <div className='panel-rol'></div>
                 <a className="boton_back" href="#" onClick={() => setPanel(0)}>Volver</a>
             </section>
-            <div className='scroll-bar-panel'></div>
+            
         </>
     );
 }

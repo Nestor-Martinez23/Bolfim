@@ -2,6 +2,7 @@
 import '../styles/ContenedorSer.css';
 import {Ordenes, NavOrdenes} from '../components/Ordenes.jsx';
 import { Almacen, NavAlmacen } from '../components/Almacen.jsx';
+import { Compras, NavCompras } from '../components/Compras.jsx';
 import { PanelControl} from '../components/PanelControl.jsx'; 
 
 export function ChangePage({page}) {
@@ -12,6 +13,8 @@ export function ChangePage({page}) {
             return <Almacen />
         case "Panel":
             return <PanelControl />
+        case "Compras":
+            return <Compras />
         default:
             return <Ordenes />
     }
@@ -25,6 +28,8 @@ export function ChangeNav({page}){
             return <NavAlmacen />
         case "Panel":
             return null
+        case "Compras":
+            return <NavCompras />
         default:
             return <NavOrdenes />
     }

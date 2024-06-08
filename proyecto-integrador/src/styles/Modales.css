@@ -5,12 +5,126 @@
     justify-content: center;
     align-items: center;
 }
+
 .OrdenesForm {
     background-color: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 1rem;
+    padding: 20px;
     border: .2rem solid black;
     border-radius: 2rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.OrdenesForm h2,
+.OrdenesForm h3 {
     text-align: center;
 }
+
+.OrdenesForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+.OrdenesForm form > div {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.OrdenesForm input[type="text"],
+.OrdenesForm input[type="email"],
+.OrdenesForm input[type="tel"],
+.OrdenesForm input[type="number"],
+.OrdenesForm select {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.OrdenesForm .producto-cantidad {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.OrdenesForm .producto-cantidad select,
+.OrdenesForm .producto-cantidad input[type="number"] {
+    flex: 2;
+}
+
+.OrdenesForm .producto-cantidad button {
+    flex: 1;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+}
+
+.OrdenesForm .producto-cantidad button:hover {
+    background-color: #45a049;
+}
+
+.OrdenesForm button[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.OrdenesForm button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.datos-cliente{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.datos-cliente .nombre-cel{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+.OrdenesForm .productos-agregados {
+    max-height: 150px; /* Limita la altura del contenedor */
+    overflow-y: auto;  /* Añade desplazamiento vertical */
+ /* Opcional: ajusta el margen superior según sea necesario */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.OrdenesForm .productos-agregados ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid; /* Cambia a flex */
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.OrdenesForm .productos-agregados li {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex; /* Cambia a flex */
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+}
+
+
 .ModalForm2{
     background-color: rgba(255, 255, 255, 0.75);
     padding-top: 5rem;
@@ -24,3 +138,119 @@
     border-radius: 2rem;
     text-align: center;
 }
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.OrdenesForm .registro_contenedor {
+    height: 700px;
+    display: grid;
+    grid-template-rows: 1fr 2fr 3fr 6fr 1fr;
+
+}
+.encabezado-registro {
+    display: grid;
+    grid-template-columns: 5fr .5fr;
+    justify-content: center;
+    height: 106px;
+    padding-left: 6rem;
+}
+.registro_contenedor {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    position: relative;
+}
+
+.fecha-id {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    font-size:9px;
+}
+
+.registro_contenedor h2 {
+    font-size: 24px;
+    color: rgb(10, 75, 136);
+    margin-bottom: 20px;
+}
+
+.datos-responsable{
+    display: flex;
+    justify-content: space-between;
+}
+
+.datos-registro {
+    margin-bottom: 20px;
+}
+
+.datos-responsable p,
+.datos-registro p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+
+.datos-responsable strong,
+.datos-registro strong {
+    color: rgb(10, 75, 136);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 2rem;
+    
+}
+
+table thead {
+    background-color: rgb(10, 75, 136);
+    color: white;
+    
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table td {
+    color: #333;
+}
+
+.pie-registro {
+    text-align: right;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.price-container {
+    position: relative;
+    display: inline-block;
+}
+  
+.price-symbol {
+    position: absolute;
+    left: 10px; /* Ajusta según sea necesario */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px; /* Ajusta según sea necesario */
+}
+  

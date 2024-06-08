@@ -8,10 +8,10 @@ function UsersForm({ isOpen, onRequestClose }) {
         e.preventDefault();
         const form = e.target;
         const newUser = {
-            name: form.name.value,
-            email: form.email.value,
-            password: form.password.value,
-            rol: form.rol.value,
+            user_name: form.name.value,
+            user_email: form.email.value,
+            user_password: form.password.value,
+            user_rol: form.rol.value,
         };
         console.log(newUser);
         createUsers(newUser);
@@ -27,12 +27,20 @@ function UsersForm({ isOpen, onRequestClose }) {
             className='ModalForm'
         >
             <div className='OrdenesForm'>
+            
                 <form id="OrdenesForm_contenedor" onSubmit={handleForm}>
+                <button className="close-button" onClick={onRequestClose}>×</button>
                     <h2>Añadir Usuario</h2>
                     <input type="text" name="name" placeholder="Nombre y Apellido" />
                     <input type="email" name='email' placeholder="usuario@gmail.com" />
                     <input type="password" name="password" placeholder="Contraseña" />
-                    <input type="text" name="rol" placeholder="Rol de Usuario" />
+                    <select name="rol" required>
+                            <option value="">Seleccionar Rol</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Ventas">Ventas</option>
+                            <option value="Almacen">Almacen</option>
+                            <option value="Compras">Compras</option>
+                    </select>
                     <button type="submit">Crear Usuario</button>
                 </form>
             </div>
@@ -45,9 +53,9 @@ function UpdateForm({ isOpen, onRequestClose, idToUpdate, nameToUpdate }) {
         e.preventDefault();
         const form = e.target;
         const toUpdate = {
-            email: form.email.value,
-            password: form.password.value,
-            rol: form.rol.value,
+            user_email: form.email.value,
+            user_password: form.password.value,
+            user_rol: form.rol.value,
         };
         updateUsers(idToUpdate, toUpdate);
         form.reset();
