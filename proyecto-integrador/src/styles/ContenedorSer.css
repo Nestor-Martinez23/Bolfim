@@ -1,43 +1,83 @@
 .contenedor-products {
-    display: grid;
-    gap: 2rem;
-    padding: 0.5rem 2rem;
-    border-bottom: .1rem solid rgba(0, 0, 0, 0.14);
-    overflow-y: auto;
-    max-height: 40.7118rem;
-  }
-  .product,
-  .materia{
-    display: grid;
-    grid-template-columns: 1fr 2fr 2.5fr 5fr .8fr ;
-    border: .3rem solid rgba(0, 0, 0, 0.084);
-    border-radius: 1.5rem;
-    height: 8.6rem;
+  display: grid;
+  gap: 2rem;
+  padding: 0.5rem 2rem;
+  border-bottom: .1rem solid rgba(0, 0, 0, 0.14);
+  overflow-y: auto;
+  max-height: 40.7118rem;
+}
 
-  }
-  .product div,
-  .materia div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: .1rem solid rgba(0, 0, 0, 0.14);
-  }
-  .product div:last-child,
-  .materia div:last-child{
-    border-right:none;
-    border-left: .1rem solid rgba(0, 0, 0, 0.14);
-  }
+.product {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2.5fr 5fr .8fr;
+  border: .3rem solid rgba(0, 0, 0, 0.084);
+  border-radius: 1.5rem;
+  height: 8.6rem;
 
-  .scroll-bar{
-    border: .1rem solid rgba(0, 0, 0, 0.14);
-    border-radius: 1.5rem;
-  }
-  .progress-bar {
-    /* Estilos para la barra de progreso */
-    height: 4rem;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-left: 20px;
-    margin-top: 20px;
-  }
-  
+}
+.materia{
+  display: grid;
+  grid-template-columns: 1fr 2fr 2.5fr 3fr 2fr .8fr;
+  border: .3rem solid rgba(0, 0, 0, 0.084);
+  border-radius: 1.5rem;
+  height: 8.6rem; 
+}
+.compra {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2.5fr 3fr 2fr 2fr .8fr;
+  border: .3rem solid rgba(0, 0, 0, 0.084);
+  border-radius: 1.5rem;
+  height: 8.6rem;
+}
+
+.product div,
+.materia div,
+.compra div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: .1rem solid rgba(0, 0, 0, 0.14);
+}
+
+.product div:last-child,
+.materia div:last-child {
+  border-right: none;
+  border-left: .1rem solid rgba(0, 0, 0, 0.14);
+}
+
+.scroll-bar {
+  border: .1rem solid rgba(0, 0, 0, 0.14);
+  border-radius: 1.5rem;
+}
+
+.progress-bar {
+  /* Estilos para la barra de progreso */
+  height: 4rem;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+
+.materia-encabezado {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2.5fr 3fr 2fr .8fr;
+  height: 2.6rem;
+  padding: 0.5rem 4rem;
+}
+.compras-encabezado {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2.5fr 3fr 2fr 2fr .8fr;
+  height: 2.6rem;
+  padding: 0.5rem 4rem;
+}
+.materia-encabezado div,
+.compras-encabezado div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
