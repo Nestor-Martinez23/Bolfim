@@ -12,7 +12,7 @@ function MainMenu() {
     const [page, setPage] = useState('Panel');
     const { logout } = useAuth();
     const userData = localStorage.getItem('userData');
-    const { userName, userRole } = JSON.parse(userData);
+    const { userName, userRole} = JSON.parse(userData);
     
    
 
@@ -57,6 +57,7 @@ function MainMenu() {
                             <button className='button-menu' onClick={() => setPage('Panel')}>Panel</button>
                             <button className='button-menu' onClick={() => setPage('Ventas')}>Ventas</button>
                             <button className='button-menu' onClick={() => setPage('Almacen')}>Almacen</button>
+                            <button className='button-menu' onClick={() => setPage('Compras')}>Compras</button>
                             <button className='button-Config' onClick={() => setPage('Config')}>   <a href=""><img src={IconConfig} alt="" /></a> </button>
                         </nav>
                     </div>
