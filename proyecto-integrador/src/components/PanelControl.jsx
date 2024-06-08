@@ -50,6 +50,7 @@ function PanelControl() {
 
     return (
         <>
+           <div></div>
             {panel === 0 ? (
                 <section className='contenedor-paneles-menu'>
                     <div className='panel-rol'>
@@ -82,9 +83,9 @@ function PanelControl() {
                             users.map((user) => (
                                 <div className='user' key={user._id} data-id={user._id} data-name={user.name}>
                                     <div> <img src={imgUser} alt="imagen de usuario" /></div>
-                                    <div>{user.name}</div>
-                                    <div>{user.rol}</div>
-                                    <div>{user.email}</div>
+                                    <div>{user.user_name}</div>
+                                    <div>{user.user_rol}</div>
+                                    <div>{user.user_email}</div>
                                     <div>
                                         <a className="delete-Products" href="#">
                                             <img src={editUser} onClick={handleUpdate} alt="icon_editar" />
@@ -107,10 +108,10 @@ function PanelControl() {
                     <section className='contenedor_users-rols'>
                         {users && users.length > 0 ? (
                             users.map((user) => (
-                                <div className='user-rols' key={user._id} data-id={user._id} data-name={user.name}>
+                                <div className='user-rols' key={user._id} data-id={user._id} data-name={user.user_name}>
                                     <div> <img src={imgUser} alt="imagen de usuario" /></div>
-                                    <div>{user.name}</div>
-                                    <div>{user.rol}</div>
+                                    <div>{user.user_name}</div>
+                                    <div>{user.user_rol}</div>
                                 </div>
                             ))
                         ) : (
