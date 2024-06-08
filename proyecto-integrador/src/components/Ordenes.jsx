@@ -77,7 +77,8 @@ function Ordenes() {
                 <div></div>
             </div>
             <section className='contenedor-products'>
-                {orders.map((order) => {
+            {orders && orders.length > 0 ? (
+                orders.map((order) => {
                     const porcentajeProgreso = mapProgresoToPercentage(order.progreso);
                     return (
                         <div className='product' key={order._id} data-id={order._id}>
@@ -95,7 +96,10 @@ function Ordenes() {
                             </div>
                         </div>
                     );
-                })}
+                })
+            ) : (
+                <p>No hay Ordenes registradas</p>
+            )}
             </section>
         </>
     );
