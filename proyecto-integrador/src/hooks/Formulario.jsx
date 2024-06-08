@@ -38,7 +38,7 @@ function OrdersForm({isOpen, onRequestClose}) {
             user_id: userId,
             costoTotal,
             fecha_venta: form.date.value,
-            progreso: 10,
+            progreso: 1,
             productos
         };
         console.log(newOrder);
